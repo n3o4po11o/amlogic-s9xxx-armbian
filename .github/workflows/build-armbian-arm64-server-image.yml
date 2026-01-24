@@ -230,6 +230,7 @@ on:
         type: choice
         options:
           - ophub/kernel
+          - n3o4po11o/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -264,6 +265,7 @@ on:
         options:
           - ophub
           - angel
+          - n3o4po11o
 
 env:
   TZ: Etc/UTC
