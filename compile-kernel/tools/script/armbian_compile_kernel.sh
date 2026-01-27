@@ -340,6 +340,21 @@ toolchain_check() {
         export CC="ccache clang"
         export LD="ld.lld"
         export MFLAGS=" LLVM=1 LLVM_IAS=1 "
+    elif [[ "${toolchain_name}" == "local-gcc" ]]; then
+        echo -e "${INFO} 使用本地 GCC 工具链进行原生编译..."
+        
+        # 确保安装了基础开发工具
+        sudo apt-get -qq update
+        sudo apt-get -qq install -y build-essential bc bison flex libssl-dev libelf-dev ccache
+
+        # 设置参数：在原生 ARM64 环境下，通常不需要指定 CROSS_COMPILE
+        export PATH="${path_os_variable}"
+        export CC="ccache gcc"
+        # 即使是原生编译，内核 Makefile 有时也建议明确 ARCH
+        export ARCH="arm64"
+        # 注意：在原生环境下，CROSS_COMPILE 通常留空或不设置
+        export CROSS_COMPILE=""
+        export MFLAGS="-j$(nproc)"
     else
         # Download Arm GNU Toolchain
         [[ -d "${toolchain_path}" ]] || mkdir -p ${toolchain_path}
