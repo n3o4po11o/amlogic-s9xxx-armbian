@@ -350,6 +350,7 @@ toolchain_check() {
         # 设置参数：在原生 ARM64 环境下，通常不需要指定 CROSS_COMPILE
         export PATH="${path_os_variable}"
         export CC="ccache gcc"
+        export LD="ld.bfd"
         # 即使是原生编译，内核 Makefile 有时也建议明确 ARCH
         export ARCH="arm64"
         # 注意：在原生环境下，CROSS_COMPILE 通常留空或不设置
