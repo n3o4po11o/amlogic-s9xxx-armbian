@@ -147,8 +147,8 @@ configure_and_compile() {
     echo -e "${INFO} Restarting Docker container..."
     docker restart ${docker_container} >/dev/null && sleep 5
 
-    echo -e "${INFO} Syncing scripts in Docker container..."
-    docker exec -i "${docker_container}" bash "${docker_script}" -u
+    # echo -e "${INFO} Syncing scripts in Docker container..."
+    # docker exec -i "${docker_container}" bash "${docker_script}" -u
 
     echo -e "${INFO} Injecting custom configs into Docker container..."
     [[ -d "${config_path}" ]] && docker cp ${config_path}/. "${docker_container}":/opt/kernel/compile-kernel/tools/config/
