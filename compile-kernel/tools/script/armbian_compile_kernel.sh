@@ -90,7 +90,7 @@ enable_log="false"
 output_logfile="/var/log/kernel_compile_$(date +%Y-%m-%d_%H-%M-%S).log"
 
 # Set the kernel configuration download repository, branch and path
-kernel_config_repo="https://github.com/ophub/kernel"
+kernel_config_repo="https://github.com/n3o4po11o/kernel"
 kernel_config_repo_branch="main"
 kernel_config_path="kernel-config/release"
 # Set the kernel config tag directory, options: [ stable / rk3588 / rk35xx / h6 ]
